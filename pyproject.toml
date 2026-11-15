@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inference-modelling"
+version = "1.0.0"
+description = "Code and data for Bayesian inference in partially observed critical systems: the random transposition shuffle, the relative floor, and the critical Ising model."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Mihika Singhania" }]
+keywords = ["bayesian inference", "partial observation", "random transposition shuffle", "ising model", "criticality"]
+
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=2.0",
+    "pyarrow>=12.0",
+    "matplotlib>=3.7",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+symbolic = ["sympy>=1.12", "mpmath>=1.3"]
+
+[project.urls]
+Preprint = "https://arxiv.org/abs/2610.35973"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["rsi_shuffle*", "rsi_partial*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "src/rsi_partial/tests"]
+python_files = ["test_*.py"]
+addopts = "-q"

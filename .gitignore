@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+# Compiled / scratch
+*.o
+*.so
+experiments/extension/verification/wolff
+# Outputs written by default by the runners (stored outputs live under results/outputs)
+/results/*
+!/results/figures/
+!/results/outputs/
+!/results/tables/
+/simulation_results.csv
+# Editors / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+# LaTeX build products
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk

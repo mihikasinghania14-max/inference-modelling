@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the preprint below."
+title: "Inference Modelling: code and data for Bayesian inference in partially observed critical systems"
+type: software
+version: 1.0.0
+date-released: 2026-11-15
+license: MIT
+authors:
+  - family-names: Singhania
+    given-names: Mihika
+    orcid: "https://orcid.org/0009-0002-7864-4642"
+    affiliation: "Independent researcher, India"
+repository-code: "https://github.com/mihikasinghania14-max/inference-modelling"
+keywords:
+  - Bayesian inference
+  - partial observation
+  - random transposition shuffle
+  - Ising model
+  - criticality
+preferred-citation:
+  type: article
+  title: "Bayesian Inference in Partially Observed Critical Systems"
+  authors:
+    - family-names: Singhania
+      given-names: Mihika
+      orcid: "https://orcid.org/0009-0002-7864-4642"
+  journal: "arXiv preprint"
+  notes: "arXiv:2610.35973"
+  doi: "10.48550/arXiv.2610.35973"
+  year: 2026
+references:
+  - type: report
+    title: "Bayesian Inference in Random Transposition Shuffles"
+    authors:
+      - family-names: Singhania
+        given-names: Mihika
+    institution:
+      name: "Research Science Initiative India"
+    notes: "Under the direction of Prof. Arvind Ayyer, Department of Mathematics, Indian Institute of Science. Dated 9 July 2026."
+    year: 2026
+  - type: manuscript
+    title: "An Irreducible Floor in Partial Observation: Extension to Bayesian Inference in Random Transposition Shuffles"
+    authors:
+      - family-names: Singhania
+        given-names: Mihika
+    notes: "Unpublished manuscript, 2 October 2026; superseded by the preprint above."
+    year: 2026
