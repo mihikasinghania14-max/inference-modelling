@@ -1,55 +1,80 @@
-[README.md](https://github.com/user-attachments/files/34881558/README.md)
-# inference-modelling
+[README.md](https://github.com/user-attachments/files/34881668/README.md)
+# Inference Modelling
 
-Code and data for *Bayesian Inference in Partially Observed Critical Systems* (arXiv:2610.35973), by Mihika Singhania, independent researcher, India.
+Code and data accompanying *Bayesian Inference in Partially Observed Critical Systems*, M. Singhania, arXiv:2610.35973.
 
-The paper starts from a small question. You have a system of `n` pieces and you look at `m` of them, picked at random. How big does `m` have to be before you can say something about the whole system? For a deck of cards shuffled by random transpositions the answer doesn't depend on `n`. For the 2D Ising model at its critical point it does stop working, past a certain precision, and looking at more of the system doesn't help. The paper calls that leftover error the floor. The arguments are in the paper, so I haven't repeated them here.
+## Overview
 
-It began as a project at the Research Science Initiative in India (supervised by Arvind Ayyer; that report is dated 9 July 2026 and is in `research/original-rsi-research`). The Ising, Curie–Weiss and correlated-field parts came afterwards, on my own.
+The paper studies how much of a large random system must be observed, through a uniformly random subset of `m` of its `n` components, before a global statistic can be inferred with controlled uncertainty. For the random transposition shuffle, the relative uncertainty of the mean-displacement estimator is `1/√(2m)`, independent of `n`. The law of total variance separates a sampling term, which decreases as `1/m`, from an `m`-independent term, the floor. At the critical point of the two-dimensional Ising model the floor of the energy density vanishes with system size, while the floor of the magnetisation magnitude does not.
 
-## What's where
+The work extends a project carried out at the Research Science Initiative (RSI), India, under the supervision of Prof. Arvind Ayyer (report dated 9 July 2026).
 
-- `src/rsi_shuffle` – the shuffle, the estimators, the closed-form variance and floor. This is the RSI half.
-- `src/rsi_partial` – the measurement code for the second half (cards, a product chain, Ising, Curie–Weiss). It has its own tests, 74 of them.
-- `notebooks` – two short ones, on the variance law and on the floor.
-- `experiments/original-research` – my old scripts, left as I wrote them. Some are rough.
-- `experiments/extension/verification` – scripts that re-derive the algebra and a few numbers independently, with their output in `results/outputs/extension-verification`.
-- `experiments/extension/campaign` – the Wolff sampler (C) and the analysis for the Ising runs. Kaufman's torus formula and Wolff's 1989 cluster update are what it leans on.
-- `data` – spreadsheets from the RSI paper and the newer runs. Read the next section first.
-- `research` – both papers, the manuscript drafts and my working notes from the time. The notes are untidy and written in the first person, as they were.
-- `docs` – notes on things I found wrong or odd. `known-issues.md` is the one to read.
+## Repository structure
 
-## Running it
+| Path | Contents |
+|---|---|
+| `src/rsi_shuffle` | Random transposition shuffle, estimators, Bayesian posterior, closed-form variance and floor |
+| `src/rsi_partial` | Measurement code for partial observation: card shuffle, product chain, 2D Ising, Curie–Weiss |
+| `notebooks` | Walkthroughs of the variance law and of the floor |
+| `experiments/original-research` | Original RSI scripts |
+| `experiments/extension` | Independent verification scripts and the Wolff-sampler campaign for the critical Ising model |
+| `data` | RSI spreadsheets and variance grid; regenerated Stage 1 and Stage 2 data |
+| `results` | Figures and stored outputs |
+| `research` | RSI paper, extension manuscripts and working notes |
+| `docs` | Methodology, mathematical background, computational methods, reproducibility, provenance and known issues |
 
-```
+## Installation
+
+Python 3.11 or later.
+
+```bash
 pip install -e ".[test]"
-pytest
 ```
 
-103 tests, a minute or two. The `Makefile` has shortcuts for the rest. The Ising campaign takes hours (L = 96 and 128 are the slow ones); regenerating the Stage 1 data takes about five minutes. A C compiler is needed for the Wolff code.
+A C compiler is required for the Wolff sampler. `environment.yml` and `requirements.txt` are provided for conda and pip environments.
 
-## About the data
+## Usage
 
-If you're checking numbers, this is the part that matters.
+```bash
+pytest                  # 103 tests
+make check              # fresh simulation against the stored variance grid and the exact law
+make figures            # regenerate all figures
+make stage1-data        # seeded Stage 1 datasets (about five minutes)
+make ising              # critical Ising campaign (several hours)
+```
 
-The Stage 1 spreadsheets are the originals. They were produced without a fixed seed, so they can't be rebuilt exactly. `data/original-research/regenerated` has the same experiments rerun with seeds. Same method, different random numbers.
+Example:
 
-For Stage 2 I could not find the raw output behind the extension figures: the Ising runs up to L = 128, the Curie–Weiss runs, the correlated fields, the Algorithm 1 runs. What's in `data/extension/regenerated` is new. Wolff runs for L = 8 to 128 and exact Curie–Weiss sums, made this month to replace the ones that went missing. They are not the runs the paper used. They agree with Table 1 of the manuscript within Monte Carlo error (the `|M|` floor is about 0.072, the energy slope about −0.863). They do not agree with my older extension paper, which has 0.066 and −0.82. I don't know why those came out lower.
+```python
+from rsi_shuffle import theory
 
-The correlated-field results and Algorithm 1 were only checked on a torus, independently (`experiments/extension/verification/field.py`). Algorithm 1 is a proposal. I wouldn't call it validated.
+theory.relative_floor(1024)            # 3.91e-04
+theory.certification_cost(0.10, 1024)  # approximately 408 observed cards
+```
 
-## Things that don't line up
+Seeds and expected run times are listed in `docs/reproducibility.md`.
 
-- The RSI Figure 2 data at n = 2 and n = 4 look like a chain that swaps two different positions, while the paper defines the chain with independent positions. The difference is gone by n = 64.
-- The stored variance grid has 77 (n, m) pairs. The paper's table has 67 and its text says 72.
-- `docs/known-issues.md` has the rest, with the evidence.
+## Data
 
-## Help
+- `data/original-research` contains the spreadsheets underlying the RSI figures and the variance grid, with CSV exports.
+- `data/original-research/regenerated` contains seeded reruns of the Stage 1 experiments: calibration under both pair conventions, the `n = 512` trajectory and the full variance grid.
+- `data/extension/regenerated` contains Wolff-sampler block means for the critical Ising model (`L = 8, …, 128`, two starts per size), their analysis, and exact Curie–Weiss moments. At `T_c` the magnetisation floor is approximately 0.072 and the energy-floor exponent is −0.863, in agreement with Table 1 of the integrated manuscript.
+- `results/outputs` contains the stored smoke-run output of the measurement code and the output of the verification scripts.
 
-Part of the code, the tests, the regenerated data and the docs were written with an AI assistant (Claude, from Anthropic). `docs/provenance.md` says what and where. The RSI paper and the scripts in `experiments/original-research` are my own work.
+Files under `regenerated/` were produced for this repository with fixed seeds. They are reruns of the experiments reported in the papers and are not the original run outputs. File provenance is documented in `docs/provenance.md`.
 
-## Citing, licence, thanks
+## Citation
 
-`CITATION.cff` has the details. There is no archive DOI yet; it goes here once I've deposited the repository. The code is MIT. The papers, figures and data aren't covered by that licence.
+See `CITATION.cff`.
 
-Thanks to Prof. Ayyer for the mentoring and for leaving room to explore, to Keerthana Senthil, to Tarun Prasad for reading the work, to Amy Sillman, Max Bee Lindgren and the RSI staff, and to the Centre for Excellence in Education and IISc. The later computing was paid for by an Emergent Ventures (Mercatus Center) grant.
+> M. Singhania. *Bayesian Inference in Partially Observed Critical Systems.* arXiv:2610.35973.
+
+An archive DOI will be added upon deposit.
+
+## Licence
+
+The code is released under the MIT licence (`LICENSE`). The papers, figures and data are not covered by this licence.
+
+## Acknowledgements
+
+The author thanks Prof. Arvind Ayyer for supervision and guidance, Ms. Keerthana Senthil, Tarun Prasad, Dr Amy Sillman, Max Bee Lindgren and the staff of RSI India, the Centre for Excellence in Education and the Indian Institute of Science. Computing costs of the later work were supported by an Emergent Ventures (Mercatus Center) grant.
