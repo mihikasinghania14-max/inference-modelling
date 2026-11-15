@@ -77,4 +77,4 @@ The code is released under the MIT licence (`LICENSE`). The papers, figures and 
 
 ## Acknowledgements
 
-The author thanks Prof. Arvind Ayyer for supervision and guidance, Ms. Keerthana Senthil, Tarun Prasad, Dr Amy Sillman, Max Bee Lindgren and the staff of RSI India, the Centre for Excellence in Education and the Indian Institute of Science. Computing costs of the later work were supported by an Emergent Ventures (Mercatus Center) grant.
+The author thanks Prof. Arvind Ayyer, IISc for supervision and guidance and the staff of RSI India, the Centre for Excellence in Education and the Indian Institute of Science. Computing costs of the later work were supported by an Emergent Ventures (Mercatus Center) grant.
