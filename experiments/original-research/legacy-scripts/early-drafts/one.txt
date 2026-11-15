@@ -1,0 +1,29 @@
+import random
+
+def transposition_shuffle(n):
+    # Step 1: Create a deck of n cards, numbered 1 to n
+    deck = list(range(1, n + 1))
+
+    # Step 2: Pick two different random positions in the deck
+    position_1 = random.randint(0, n - 1)   # randint is inclusive on both ends
+
+    # Keep picking position_2 until it's different from position_1
+    position_2 = position_1
+    while position_2 == position_1:
+        position_2 = random.randint(0, n - 1)
+
+    # Step 3: Swap the cards at those two positions
+    temp_card = deck[position_1]             # Save card at position_1 temporarily
+    deck[position_1] = deck[position_2]      # Overwrite position_1 with position_2's card
+    deck[position_2] = temp_card             # Put the saved card into position_2
+
+    # Step 4: Report what happened and return the shuffled deck
+    print(f"Swapped positions {position_1} and {position_2} "
+          f"(cards {temp_card} and {deck[position_1]})")
+    return deck
+
+
+# --- Run it ---
+n = 10
+result = random_transposition_shuffle(n)
+print("Shuffled deck:", result)

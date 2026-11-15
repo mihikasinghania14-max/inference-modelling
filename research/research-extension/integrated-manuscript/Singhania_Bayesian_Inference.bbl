@@ -1,0 +1,251 @@
+\begin{thebibliography}{23}
+% BibTex style file: ba2.bst, 2026-08-03
+
+\bibitem[\protect\citeauthoryear{Baxter}{1982}]{Baxter1982}
+\begin{bbook}
+\bauthor{\bsnm{Baxter}, \binits{R.~J.}} (\byear{1982}).
+\emph{\bbtitle{Exactly Solved Models in Statistical Mechanics}}.
+\blocation{London}: \bpublisher{Academic Press}.
+\end{bbook}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Bishop}{2006}]{Bishop2006}
+\begin{bbook}
+\bauthor{\bsnm{Bishop}, \binits{C.~M.}} (\byear{2006}).
+\emph{\bbtitle{Pattern Recognition and Machine Learning}}.
+\blocation{New York}: \bpublisher{Springer}.
+\end{bbook}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Cochran}{1977}]{Cochran1977}
+\begin{bbook}
+\bauthor{\bsnm{Cochran}, \binits{W.~G.}} (\byear{1977}).
+\emph{\bbtitle{Sampling Techniques}}.
+\blocation{New York}: \bpublisher{John Wiley \& Sons},
+\bedition{third} edition.
+\end{bbook}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Diaconis and
+  Graham}{1977}]{DiaconisGraham1977}
+\begin{barticle}
+\bauthor{\bsnm{Diaconis}, \binits{P.}} and \bauthor{\bsnm{Graham},
+  \binits{R.~L.}} (\byear{1977}).
+\batitle{Spearman's footrule as a measure of disarray}.
+\emph{\bjtitle{Journal of the Royal Statistical Society: Series B
+  (Methodological)}}
+\bvolume{39}, \bfpage{262}--\blpage{268}.
+\bid{doi={10.1111/j.2517-6161.1977.tb01644.x}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Diaconis and
+  Shahshahani}{1981}]{DiaconisShahshahani1981}
+\begin{barticle}
+\bauthor{\bsnm{Diaconis}, \binits{P.}} and \bauthor{\bsnm{Shahshahani},
+  \binits{M.}} (\byear{1981}).
+\batitle{Generating a random permutation with random transpositions}.
+\emph{\bjtitle{Zeitschrift f{\"u}r Wahrscheinlichkeitstheorie und Verwandte
+  Gebiete}}
+\bvolume{57}, \bfpage{159}--\blpage{179}.
+\bid{doi={10.1007/BF00535487}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Ellis and Newman}{1978}]{EllisNewman1978}
+\begin{barticle}
+\bauthor{\bsnm{Ellis}, \binits{R.~S.}} and \bauthor{\bsnm{Newman},
+  \binits{C.~M.}} (\byear{1978}).
+\batitle{Limit theorems for sums of dependent random variables occurring in
+  statistical mechanics}.
+\emph{\bjtitle{Zeitschrift f{\"u}r Wahrscheinlichkeitstheorie und Verwandte
+  Gebiete}}
+\bvolume{44}, \bfpage{117}--\blpage{139}.
+\bid{doi={10.1007/BF00533049}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Ferdinand and
+  Fisher}{1969}]{FerdinandFisher1969}
+\begin{barticle}
+\bauthor{\bsnm{Ferdinand}, \binits{A.~E.}} and \bauthor{\bsnm{Fisher},
+  \binits{M.~E.}} (\byear{1969}).
+\batitle{Bounded and inhomogeneous {I}sing models. {I}. {S}pecific-heat anomaly
+  of a finite lattice}.
+\emph{\bjtitle{Physical Review}}
+\bvolume{185}, \bfpage{832}--\blpage{846}.
+\bid{doi={10.1103/PhysRev.185.832}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Flyvbjerg and
+  Petersen}{1989}]{FlyvbjergPetersen1989}
+\begin{barticle}
+\bauthor{\bsnm{Flyvbjerg}, \binits{H.}} and \bauthor{\bsnm{Petersen},
+  \binits{H.~G.}} (\byear{1989}).
+\batitle{Error estimates on averages of correlated data}.
+\emph{\bjtitle{The Journal of Chemical Physics}}
+\bvolume{91}, \bfpage{461}--\blpage{466}.
+\bid{doi={10.1063/1.457480}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Gelman and Rubin}{1992}]{GelmanRubin1992}
+\begin{barticle}
+\bauthor{\bsnm{Gelman}, \binits{A.}} and \bauthor{\bsnm{Rubin}, \binits{D.~B.}}
+  (\byear{1992}).
+\batitle{Inference from iterative simulation using multiple sequences}.
+\emph{\bjtitle{Statistical Science}}
+\bvolume{7}, \bfpage{457}--\blpage{472}.
+\bid{doi={10.1214/ss/1177011136}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Geyer}{1992}]{Geyer1992}
+\begin{barticle}
+\bauthor{\bsnm{Geyer}, \binits{C.~J.}} (\byear{1992}).
+\batitle{Practical {M}arkov chain {M}onte {C}arlo}.
+\emph{\bjtitle{Statistical Science}}
+\bvolume{7}, \bfpage{473}--\blpage{483}.
+\bid{doi={10.1214/ss/1177011137}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{H{\'a}jek}{1960}]{Hajek1960}
+\begin{barticle}
+\bauthor{\bsnm{H{\'a}jek}, \binits{J.}} (\byear{1960}).
+\batitle{Limiting distributions in simple random sampling from a finite
+  population}.
+\emph{\bjtitle{Publications of the Mathematical Institute of the Hungarian
+  Academy of Sciences}}
+\bvolume{5}, \bfpage{361}--\blpage{374}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Harris et~al.}{2020}]{Harris2020}
+\begin{barticle}
+\bauthor{\bsnm{Harris}, \binits{C.~R.}}, \bauthor{\bsnm{Millman},
+  \binits{K.~J.}}, \bauthor{\bsnm{van~der Walt}, \binits{S.~J.}}, \betal\
+  (\byear{2020}).
+\batitle{Array programming with {NumPy}}.
+\emph{\bjtitle{Nature}}
+\bvolume{585}, \bfpage{357}--\blpage{362}.
+\bid{doi={10.1038/s41586-020-2649-2}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Kaufman}{1949}]{Kaufman1949}
+\begin{barticle}
+\bauthor{\bsnm{Kaufman}, \binits{B.}} (\byear{1949}).
+\batitle{Crystal statistics. {II}. {P}artition function evaluated by spinor
+  analysis}.
+\emph{\bjtitle{Physical Review}}
+\bvolume{76}, \bfpage{1232}--\blpage{1243}.
+\bid{doi={10.1103/PhysRev.76.1232}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Lehmann and
+  Casella}{1998}]{LehmannCasella1998}
+\begin{bbook}
+\bauthor{\bsnm{Lehmann}, \binits{E.~L.}} and \bauthor{\bsnm{Casella},
+  \binits{G.}} (\byear{1998}).
+\emph{\bbtitle{Theory of Point Estimation}}.
+\blocation{New York}: \bpublisher{Springer},
+\bedition{second} edition.
+\end{bbook}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Levin et~al.}{2009}]{LevinPeresWilmer2009}
+\begin{bbook}
+\bauthor{\bsnm{Levin}, \binits{D.~A.}}, \bauthor{\bsnm{Peres}, \binits{Y.}},
+  and \bauthor{\bsnm{Wilmer}, \binits{E.~L.}} (\byear{2009}).
+\emph{\bbtitle{Markov Chains and Mixing Times}}.
+\blocation{Providence, RI}: \bpublisher{American Mathematical Society}.
+\end{bbook}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Liggett}{1985}]{Liggett1985}
+\begin{bbook}
+\bauthor{\bsnm{Liggett}, \binits{T.~M.}} (\byear{1985}).
+\emph{\bbtitle{Interacting Particle Systems}}.
+\blocation{New York}: \bpublisher{Springer}.
+\end{bbook}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Mitzenmacher}{2001}]{Mitzenmacher2001}
+\begin{barticle}
+\bauthor{\bsnm{Mitzenmacher}, \binits{M.}} (\byear{2001}).
+\batitle{The power of two choices in randomized load balancing}.
+\emph{\bjtitle{IEEE Transactions on Parallel and Distributed Systems}}
+\bvolume{12}, \bfpage{1094}--\blpage{1104}.
+\bid{doi={10.1109/71.963420}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Onsager}{1944}]{Onsager1944}
+\begin{barticle}
+\bauthor{\bsnm{Onsager}, \binits{L.}} (\byear{1944}).
+\batitle{Crystal statistics. {I}. {A} two-dimensional model with an
+  order-disorder transition}.
+\emph{\bjtitle{Physical Review}}
+\bvolume{65}, \bfpage{117}--\blpage{149}.
+\bid{doi={10.1103/PhysRev.65.117}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Robert}{2007}]{Robert2007}
+\begin{bbook}
+\bauthor{\bsnm{Robert}, \binits{C.~P.}} (\byear{2007}).
+\emph{\bbtitle{The {B}ayesian Choice: From Decision-Theoretic Foundations to
+  Computational Implementation}}.
+\blocation{New York}: \bpublisher{Springer},
+\bedition{second} edition.
+\end{bbook}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Salas and Sokal}{2000}]{SalasSokal2000}
+\begin{barticle}
+\bauthor{\bsnm{Salas}, \binits{J.}} and \bauthor{\bsnm{Sokal}, \binits{A.~D.}}
+  (\byear{2000}).
+\batitle{Universal amplitude ratios in the critical two-dimensional {I}sing
+  model on a torus}.
+\emph{\bjtitle{Journal of Statistical Physics}}
+\bvolume{98}, \bfpage{551}--\blpage{588}.
+\bid{doi={10.1023/A:1018611122166}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Virtanen et~al.}{2020}]{Virtanen2020}
+\begin{barticle}
+\bauthor{\bsnm{Virtanen}, \binits{P.}}, \bauthor{\bsnm{Gommers}, \binits{R.}},
+  \bauthor{\bsnm{Oliphant}, \binits{T.~E.}}, \betal\  (\byear{2020}).
+\batitle{{SciPy} 1.0: {F}undamental algorithms for scientific computing in
+  {P}ython}.
+\emph{\bjtitle{Nature Methods}}
+\bvolume{17}, \bfpage{261}--\blpage{272}.
+\bid{doi={10.1038/s41592-019-0686-2}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Wolff}{1989}]{Wolff1989}
+\begin{barticle}
+\bauthor{\bsnm{Wolff}, \binits{U.}} (\byear{1989}).
+\batitle{Collective {M}onte {C}arlo updating for spin systems}.
+\emph{\bjtitle{Physical Review Letters}}
+\bvolume{62}, \bfpage{361}--\blpage{364}.
+\bid{doi={10.1103/PhysRevLett.62.361}}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Yang}{1952}]{Yang1952}
+\begin{barticle}
+\bauthor{\bsnm{Yang}, \binits{C.~N.}} (\byear{1952}).
+\batitle{The spontaneous magnetization of a two-dimensional {I}sing model}.
+\emph{\bjtitle{Physical Review}}
+\bvolume{85}, \bfpage{808}--\blpage{816}.
+\bid{doi={10.1103/PhysRev.85.808}}
+\end{barticle}
+\endbibitem
+
+\end{thebibliography}
