@@ -1,123 +1,55 @@
-# Inference modelling
+[README.md](https://github.com/user-attachments/files/34881558/README.md)
+# inference-modelling
 
-Code, data and notes for **Bayesian Inference in Partially Observed Critical Systems** (M. Singhania, arXiv:[2610.35973](https://arxiv.org/abs/2610.35973)).
+Code and data for *Bayesian Inference in Partially Observed Critical Systems* (arXiv:2610.35973), by Mihika Singhania, independent researcher, India.
 
-The question: a system has `n` components and we see only `m` of them, chosen uniformly at random. How large must `m` be before a global statistic of the system, such as its mean displacement or magnetisation, can be inferred to a given relative tolerance? For a random transposition shuffle the answer is clean and independent of `n`. At a critical point it is not, because a second source of error does not shrink with `m`.
+The paper starts from a small question. You have a system of `n` pieces and you look at `m` of them, picked at random. How big does `m` have to be before you can say something about the whole system? For a deck of cards shuffled by random transpositions the answer doesn't depend on `n`. For the 2D Ising model at its critical point it does stop working, past a certain precision, and looking at more of the system doesn't help. The paper calls that leftover error the floor. The arguments are in the paper, so I haven't repeated them here.
 
-![Squared coefficient of variation of the partial estimator against the number of observed cards, with the floor](results/figures/extension/decomposition.png)
+It began as a project at the Research Science Initiative in India (supervised by Arvind Ayyer; that report is dated 9 July 2026 and is in `research/original-rsi-research`). The Ising, Curie–Weiss and correlated-field parts came afterwards, on my own.
 
-*Shuffle of `n = 1024` cards, exact. The coefficient of variation follows `1/(2m)` until the `m`-independent floor `R_n` takes over.*
+## What's where
 
-## What is in the preprint
+- `src/rsi_shuffle` – the shuffle, the estimators, the closed-form variance and floor. This is the RSI half.
+- `src/rsi_partial` – the measurement code for the second half (cards, a product chain, Ising, Curie–Weiss). It has its own tests, 74 of them.
+- `notebooks` – two short ones, on the variance law and on the floor.
+- `experiments/original-research` – my old scripts, left as I wrote them. Some are rough.
+- `experiments/extension/verification` – scripts that re-derive the algebra and a few numbers independently, with their output in `results/outputs/extension-verification`.
+- `experiments/extension/campaign` – the Wolff sampler (C) and the analysis for the Ising runs. Kaufman's torus formula and Wolff's 1989 cluster update are what it leans on.
+- `data` – spreadsheets from the RSI paper and the newer runs. Read the next section first.
+- `research` – both papers, the manuscript drafts and my working notes from the time. The notes are untidy and written in the first person, as they were.
+- `docs` – notes on things I found wrong or odd. `known-issues.md` is the one to read.
 
-1. **Sample-size law (Stage 1, the RSI project).** For the random transposition shuffle and the average displacement `AD`, the mean of `m` uniformly sampled cards is unbiased and has relative standard deviation `1/√(2m)`, whatever `n` is. A conjugate Gaussian posterior gives credible intervals in closed form.
-2. **The floor (Stage 2).** The law of total variance splits `Var(Ô_m)` into a sampling term that falls like `1/m` and an `m`-independent term `Var_ν(O)`. Divided by `O_∞²` this is the relative floor `R_n`. For the shuffle, `R_n = (2n²+7)/(5(n−1)²(n+1))` and `n R_n → 2/5`.
-3. **Certification.** No sample size certifies a tolerance below `κ√R_n`, with `κ = z_{1−α} + z_{1−β}`. Where `R_n` stays of order one, partial observation cannot certify an equilibrium mean however many components are seen.
-4. **Criticality.** At the critical point of the 2D Ising model the energy floor vanishes with `n` while the relative floor of `|M|` stays flat at about 0.07, a relative error near 27% however much is observed. In the Curie–Weiss model the floor is exactly computable. A Gaussian field with correlation length proportional to the box size also keeps a floor.
-5. **Open.** The interior exponent regime `0 < a < 1`, and estimating the floor from a single realisation (Algorithm 1, a proposed estimator).
-
-## Results reproduced here
-
-Everything in the table below was computed by code in this repository. The critical-Ising numbers are new, seeded runs made for this repository (`data/extension/regenerated`); see [Data](#data) for how they relate to the original runs.
-
-| Quantity | Value | Source |
-|---|---|---|
-| `n R_n` for the shuffle, `n → ∞` | 0.4000 (exact limit 2/5) | `rsi_shuffle.theory`, notebook 02 |
-| 2D Ising, `T_c`, `R_n[|M|]` for `L = 16 … 128` | 0.071 – 0.073, slope +0.004 [0.000, 0.008] | Wolff runs |
-| 2D Ising, `T_c`, `R_n[E]` slope vs `log n` | −0.863 [−0.866, −0.860]; exact (Kaufman) −0.8637 | Wolff runs, exact |
-| 2D Ising, `T_c`, `χ_M` slope vs `log n` | 0.878 [0.875, 0.881]; universal value 7/8 | Wolff runs |
-| Curie–Weiss `Var(M)` slope vs `log N` | −0.995 at `T = 2`, −0.495 at `T_c = 1`, +0.006 at `T = 0.7` | exact summation |
-
-![Relative floors of the energy and of |M| in the critical 2D Ising model](results/figures/extension/ising_floors.png)
-
-*Left: the energy floor falls on Kaufman's exact curve. Right: the floor of `|M|` is flat. Blue squares are exact small-lattice values, red dots are the Wolff runs.*
-
-## Repository layout
+## Running it
 
 ```
-src/rsi_shuffle/        Stage 1: shuffle, estimators, posterior, closed-form theory, variance grid
-src/rsi_partial/        Stage 2: measurement instrument (cards, product chain, 2D Ising, Curie–Weiss)
-tests/                  tests for rsi_shuffle and the regeneration code (rsi_partial's sit in src/rsi_partial/tests)
-notebooks/              01 variance law and posterior; 02 the floor
-scripts/                figures, spreadsheet export, regeneration and reproduction helpers
-experiments/
-  original-research/    the author's original scripts, as written
-  extension/verification/   independent checks of the extension's algebra and numerics
-  extension/campaign/       Wolff sampler, Ising campaign and analysis, exact Curie–Weiss
-data/
-  original-research/    spreadsheets behind the RSI figures, CSV exports, the variance grid
-  original-research/regenerated/   seeded Stage 1 datasets
-  extension/regenerated/           Wolff runs and exact Curie–Weiss moments
-results/                figures and stored outputs
-research/               the papers, the integrated manuscript and the working notes
-docs/                   methodology, background, methods, reproducibility, history, known issues
+pip install -e ".[test]"
+pytest
 ```
 
-`docs/inventory.md` lists where every file came from, and the files that were left out.
+103 tests, a minute or two. The `Makefile` has shortcuts for the rest. The Ising campaign takes hours (L = 96 and 128 are the slow ones); regenerating the Stage 1 data takes about five minutes. A C compiler is needed for the Wolff code.
 
-## Install
+## About the data
 
-Python 3.11 or later.
+If you're checking numbers, this is the part that matters.
 
-```bash
-pip install -e ".[test]"        # numpy, scipy, pandas, pyarrow, matplotlib, openpyxl, pytest
-pip install -e ".[symbolic]"    # sympy, mpmath: only for two verification scripts
-# or: conda env create -f environment.yml
-```
+The Stage 1 spreadsheets are the originals. They were produced without a fixed seed, so they can't be rebuilt exactly. `data/original-research/regenerated` has the same experiments rerun with seeds. Same method, different random numbers.
 
-A C compiler is needed only for the Wolff sampler.
+For Stage 2 I could not find the raw output behind the extension figures: the Ising runs up to L = 128, the Curie–Weiss runs, the correlated fields, the Algorithm 1 runs. What's in `data/extension/regenerated` is new. Wolff runs for L = 8 to 128 and exact Curie–Weiss sums, made this month to replace the ones that went missing. They are not the runs the paper used. They agree with Table 1 of the manuscript within Monte Carlo error (the `|M|` floor is about 0.072, the energy slope about −0.863). They do not agree with my older extension paper, which has 0.066 and −0.82. I don't know why those came out lower.
 
-## Run
+The correlated-field results and Algorithm 1 were only checked on a torus, independently (`experiments/extension/verification/field.py`). Algorithm 1 is a proposal. I wouldn't call it validated.
 
-```bash
-make test                       # 103 tests
-make check                      # fresh Monte Carlo against the stored variance grid and the exact law
-make figures                    # all figures
-make stage1-data                # seeded Stage 1 datasets, about five minutes
-make notebooks                  # re-execute the notebooks
-make ising                      # the critical-Ising campaign: hours
-```
+## Things that don't line up
 
-Without `make`, the commands are in the `Makefile`. Seeds, expected run times and what each command should reproduce are in `docs/reproducibility.md`.
+- The RSI Figure 2 data at n = 2 and n = 4 look like a chain that swaps two different positions, while the paper defines the chain with independent positions. The difference is gone by n = 64.
+- The stored variance grid has 77 (n, m) pairs. The paper's table has 67 and its text says 72.
+- `docs/known-issues.md` has the rest, with the evidence.
 
-A short tour:
+## Help
 
-```python
-from rsi_shuffle import theory
-theory.relative_floor(1024)            # 3.91e-04
-theory.certification_cost(0.10, 1024)  # samples needed to certify 10%; about 408
-```
+Part of the code, the tests, the regenerated data and the docs were written with an AI assistant (Claude, from Anthropic). `docs/provenance.md` says what and where. The RSI paper and the scripts in `experiments/original-research` are my own work.
 
-## Data
+## Citing, licence, thanks
 
-* **Original data (Stage 1).** The spreadsheets behind the RSI figures and the variance grid, in `data/original-research`. The generating scripts used no fixed seed, so these files cannot be rebuilt bit for bit.
-* **Seeded regenerations.** `data/original-research/regenerated` holds seeded versions of the calibration, the trajectory and the variance grid; `data/extension/regenerated` holds the Wolff block means, their analysis and the exact Curie–Weiss moments. They are **new runs, not the original ones**. The original raw output of the critical-Ising, Curie–Weiss, correlated-field and Algorithm 1 runs behind the extension's figures was not recovered. Each regenerated folder has a README with protocol, seeds and results; the Ising one also compares them with Table 1 of the integrated manuscript, whose numbers are the reference.
-* **Stored instrument output.** `results/outputs/extension-cards-smoke` is the stored Stage 1 smoke run of the instrument for the card shuffle, reproducible by `scripts/reproduce_extension_cards_smoke.sh`. `results/outputs/extension-verification` holds the output of the independent verification scripts, including the correlated-field and Algorithm 1 checks.
+`CITATION.cff` has the details. There is no archive DOI yet; it goes here once I've deposited the repository. The code is MIT. The papers, figures and data aren't covered by that licence.
 
-## Known discrepancies
-
-Re-running the work turned up places where stored data, the papers and independent calculations disagree. They are listed with evidence in [`docs/known-issues.md`](docs/known-issues.md) and have not been silently corrected. The main ones:
-
-* The RSI Figure 2 data at `n = 2, 4` match a chain that swaps two *distinct* positions, whereas the paper defines the chain with independent positions. The effect disappears for `n ≥ 64`.
-* The extension paper's critical `|M|` floor (0.066) and energy slope (−0.82) differ from the exact small-lattice values, the regenerated runs and the integrated manuscript (about 0.072 and −0.863).
-* The stored variance grid has 77 `(n, m)` pairs, the paper's table 67 and its text 72.
-
-## Limitations
-
-The certificate concerns the mean of one observable and is necessary, not sufficient, for equilibrium. The Stage 1 laws are leading order in `m/n`; the exact law is in `rsi_shuffle.theory.estimator_variance`. The Ising measurements are finite-size (`L ≤ 128`) with corrections to scaling.
-
-## Citation
-
-See `CITATION.cff`. The preprint:
-
-> M. Singhania. *Bayesian Inference in Partially Observed Critical Systems.* arXiv:2610.35973.
-
-The earlier reports in `research/` are the RSI paper (*Bayesian Inference in Random Transposition Shuffles*, Research Science Initiative, India, 9 July 2026, supervised by Prof. Arvind Ayyer, Indian Institute of Science) and the extension manuscript of 2 October 2026.
-
-## Acknowledgements
-
-The Stage 1 work was done in the Research Science Initiative (India) under the supervision of Prof. Arvind Ayyer. Thanks to Prof. Ayyer for mentoring and for an environment that encouraged independent exploration; to Ms. Keerthana Senthil for guidance; to Tarun Prasad for reviewing the work; to Dr Amy Sillman, Max Bee Lindgren and the programme staff; and to the Centre for Excellence in Education, the Indian Institute of Science and the sponsors of RSI India. Computing costs of later work were supported by an Emergent Ventures (Mercatus Center) grant.
-
-## Provenance and licence
-
-[`docs/provenance.md`](docs/provenance.md) states which files are original, which were regenerated, and how an AI assistant (Claude) was used. [`docs/manuscript-revisions.md`](docs/manuscript-revisions.md) lists the changes in the revised manuscript copy. Code is released under the MIT licence (`LICENSE`); the papers, figures and data are the author's and are not covered by it unless stated otherwise.
+Thanks to Prof. Ayyer for the mentoring and for leaving room to explore, to Keerthana Senthil, to Tarun Prasad for reading the work, to Amy Sillman, Max Bee Lindgren and the RSI staff, and to the Centre for Excellence in Education and IISc. The later computing was paid for by an Emergent Ventures (Mercatus Center) grant.
