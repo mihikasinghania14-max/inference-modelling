@@ -1,0 +1,25 @@
+{
+  "fit_sizes_L_ge": 16,
+  "slopes_vs_log_n": {
+    "R_M": 0.0038725658594597027,
+    "R_E": -0.8630631696519343,
+    "chi_M": 0.8781359693028056
+  },
+  "bootstrap_95ci": {
+    "R_M": [
+      0.0001669386923930366,
+      0.007613726138609959
+    ],
+    "R_E": [
+      -0.8657409095149089,
+      -0.8604495869076108
+    ],
+    "chi_M": [
+      0.8752414783175051,
+      0.8810950209399043
+    ]
+  },
+  "a_M_estimate": 0.8781359693028056,
+  "bootstrap_resamples": 2000,
+  "note": "regenerated with experiments/extension/campaign; not the original runs"
+}

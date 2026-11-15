@@ -1,0 +1,21 @@
+Fraction of t_mix,t=no. of transpositions performed,AD(t);Mean Progression of shuffle,SD of AD(t) : error bars,,
+0,0,0,0,,going past shows where it plateaus
+0.05,80,45.94,3.648,,"approaches equilibrium, that is why tmix is doubled"
+0.1,160,79.56,4.64,,t_mix = 1597 for n=512
+0.15,240,103.9,5.055,,
+0.2,319,121.8,5.295,,
+0.25,399,135.1,5.259,,vertical line for equilibirum at Adinfinity
+0.3,479,144.5,5.113,,at AD= 170.67
+0.35,559,151,5.033,,
+0.4,639,156.8,5.077,,AD(t) is a mean of 1000 simulations per 20 points
+0.45,719,160.7,5.015,,
+0.5,799,163.1,4.823,,pedagogical:
+0.6,958,166.9,4.977,,ordered deck at t=0
+0.7,1118,168.6,4.786,,"increasing displacement,"
+0.8,1278,169.4,4.713,,vertical line at t_mix=1597
+0.9,1437,170.1,4.823,,plateau near AD∞ 
+1,1597,170.4,4.787,,
+1.1,1757,170.8,4.767,,
+1.25,1996,170.5,4.711,,
+1.5,2396,170.6,4.798,,
+2,3194,170.6,4.872,,
