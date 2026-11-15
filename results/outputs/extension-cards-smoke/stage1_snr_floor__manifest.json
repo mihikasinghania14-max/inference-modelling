@@ -1,0 +1,25 @@
+{
+  "experiment_id": "stage1_snr_floor",
+  "root_seed": 20260818,
+  "code_version": "0.1.0",
+  "library_versions": {
+    "numpy": "2.5.0",
+    "scipy": "1.18.0",
+    "pandas": "3.0.5",
+    "pyarrow": "25.0.1"
+  },
+  "host": "[redacted]",
+  "platform": "Windows-11",
+  "python": "3.14.5",
+  "timestamp_utc": "2026-08-17T20:23:56.604914+00:00",
+  "config_grid": {
+    "system": "cards",
+    "observable": "AD",
+    "sizes": [
+      512,
+      2048,
+      8192
+    ],
+    "R": 300
+  }
+}

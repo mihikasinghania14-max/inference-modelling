@@ -1,0 +1,13 @@
+L=4 enumeration: R[e]=0.10284  R[|M|]=0.06917  Binder<M2>^2/<M4>=0.87078
+L=6 transfer matrix: R[|M|]=0.06995  Binder=0.86436
+L=8 transfer matrix: R[|M|]=0.07061  Binder=0.86143
+Kaufman L=4: R[e]=1.0284e-01  <e>=-1.56562
+Kaufman L=8: R[e]=4.1427e-02  <e>=-1.49159
+Kaufman L=16: R[e]=1.4277e-02  <e>=-1.45306
+Kaufman L=24: R[e]=7.3394e-03  <e>=-1.44013
+Kaufman L=32: R[e]=4.5182e-03  <e>=-1.43366
+Kaufman L=48: R[e]=2.2483e-03  <e>=-1.42718
+Kaufman L=64: R[e]=1.3592e-03  <e>=-1.42394
+Kaufman L=96: R[e]=6.6260e-04  <e>=-1.42070
+Kaufman L=128: R[e]=3.9584e-04  <e>=-1.41908
+slope log R[e] vs log n, 16<=L<=128: -0.8637416621909718

@@ -1,0 +1,10 @@
+n=512 t=1597: mean AD 170.198 (eq 170.666, se 0.076); var AD 23.326 (eq 22.800); mean fixed pts 2.016 var 2.002 (eq 1,1)
+n=512 t=3194: mean AD 170.694 (eq 170.666, se 0.075); var AD 22.399 (eq 22.800); mean fixed pts 0.988 var 0.997 (eq 1,1)
+TV(Poi(2),Poi(1)) = 0.3297530326330465
+m=  4 prior s0=100  coverage 0.9559  m=  4 flat          coverage 0.9538  
+m=  8 prior s0=100  coverage 0.9532  m=  8 flat          coverage 0.9532  
+m= 16 prior s0=100  coverage 0.9555  m= 16 flat          coverage 0.9555  
+m= 32 prior s0=100  coverage 0.9616  m= 32 flat          coverage 0.9610  
+m= 50 prior s0=100  coverage 0.9617  m= 50 flat          coverage 0.9617  
+m= 75 prior s0=100  coverage 0.9663  m= 75 flat          coverage 0.9663  
+m=100 prior s0=100  coverage 0.9708  m=100 flat          coverage 0.9708  
